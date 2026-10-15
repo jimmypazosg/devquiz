@@ -6,6 +6,7 @@
 let currentQuestionIndex = 0; // Índice de la pregunta actual
 let score = 0;                // Puntuación del jugador
 let isAnswered = false;       // Evita respuestas múltiples
+let userAnswers = [];         // Guarda la opción seleccionada por el usuario para cada pregunta
 
 // Referencias a elementos del DOM para no buscarlos en cada uso
 const progressBar = document.getElementById('progress-bar');
@@ -21,6 +22,9 @@ const resultsSection = document.getElementById('results-section');
 const scoreText = document.getElementById('score-text');
 const scoreMessage = document.getElementById('score-message');
 const restartBtn = document.getElementById('restart-btn');
+const reviewBtn = document.getElementById('review-btn');
+const reviewContainer = document.getElementById('review-container');
+const reviewList = document.getElementById('review-list');
 
 // ============================================
 // Inicialización del quiz
@@ -34,6 +38,7 @@ function initQuiz() {
     // Listeners para los botones de navegación
     nextBtn.addEventListener('click', nextQuestion);
     restartBtn.addEventListener('click', restartQuiz);
+    reviewBtn.addEventListener('click', toggleReview);
     
     // Mostrar la primera pregunta
     showQuestion();
@@ -101,6 +106,9 @@ function checkAnswer(selectedIndex, selectedButton) {
     
     const currentQuestion = questions[currentQuestionIndex];
     const isCorrect = selectedIndex === currentQuestion.correct;
+    
+    // Guardar la respuesta del usuario para la revisión final
+    userAnswers.push(selectedIndex);
     
     // Actualizar puntuación si acertó
     if (isCorrect) {
@@ -233,6 +241,9 @@ function showResults() {
     
     scoreMessage.textContent = message;
     
+    // Ocultar la revisión si estaba visible de una sesión anterior
+    reviewContainer.classList.add('hidden');
+    
     // Actualizar la barra de progreso al 100%
     progressBar.style.width = '100%';
     progressText.textContent = 'Quiz completado';
@@ -251,6 +262,7 @@ function restartQuiz() {
     currentQuestionIndex = 0;
     score = 0;
     isAnswered = false;
+    userAnswers = [];
     
     // Ocultar resultados y mostrar preguntas
     resultsSection.classList.add('hidden');
@@ -259,6 +271,63 @@ function restartQuiz() {
     // Mostrar primera pregunta y actualizar progreso
     showQuestion();
     updateProgress();
+}
+
+/**
+ * Alterna la visibilidad de la sección de revisión de respuestas.
+ * Si es la primera vez que se abre, genera el contenido de la lista.
+ */
+function toggleReview() {
+    if (reviewContainer.classList.contains('hidden')) {
+        renderReview();
+        reviewContainer.classList.remove('hidden');
+        reviewBtn.textContent = 'Ocultar revisión';
+    } else {
+        reviewContainer.classList.add('hidden');
+        reviewBtn.textContent = 'Revisar respuestas';
+    }
+}
+
+/**
+ * Genera la lista de revisión comparando las respuestas del usuario
+ * con las respuestas correctas.
+ */
+function renderReview() {
+    reviewList.innerHTML = '';
+    
+    questions.forEach((q, index) => {
+        const userChoice = userAnswers[index];
+        const isCorrect = userChoice === q.correct;
+        
+        const item = document.createElement('div');
+        item.classList.add('review-item');
+        
+        // Texto de la pregunta
+        const qText = document.createElement('span');
+        qText.classList.add('review-question');
+        qText.textContent = `${index + 1}. ${q.question}`;
+        item.appendChild(qText);
+        
+        // Opción elegida por el usuario
+        const userOption = document.createElement('div');
+        userOption.innerHTML = `Tu respuesta: <span class="review-option ${isCorrect ? 'review-correct' : 'review-wrong'}">${q.options[userChoice]}</span>`;
+        item.appendChild(userOption);
+        
+        // Si falló, mostrar la correcta
+        if (!isCorrect) {
+            const correctOption = document.createElement('div');
+            correctOption.innerHTML = `Correcta: <span class="review-option review-correct">${q.options[q.correct]}</span>`;
+            item.appendChild(correctOption);
+        }
+        
+        // Explicación
+        const expl = document.createElement('div');
+        expl.classList.add('review-explanation');
+        expl.textContent = q.explanation;
+        item.appendChild(expl);
+        
+        reviewList.appendChild(item);
+    });
 }
 
 // ============================================

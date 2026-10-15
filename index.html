@@ -46,7 +46,17 @@
                 <p id="score-text"></p>
                 <p id="score-message"></p>
             </div>
-            <button id="restart-btn" class="btn-primary">Volver a empezar</button>
+            
+            <div class="results-actions">
+                <button id="review-btn" class="btn-secondary">Revisar respuestas</button>
+                <button id="restart-btn" class="btn-primary">Volver a empezar</button>
+            </div>
+
+            <!-- Contenedor para la revisión detallada -->
+            <div id="review-container" class="hidden">
+                <h3>Resumen de respuestas:</h3>
+                <div id="review-list"></div>
+            </div>
         </section>
     </main>
 

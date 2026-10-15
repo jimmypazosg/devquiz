@@ -243,6 +243,67 @@ header h1 {
     color: #a0a0a0;
 }
 
+.results-actions {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 30px;
+}
+
+#review-container {
+    text-align: left;
+    background-color: #0f3460;
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 24px;
+    animation: fadeIn 0.4s ease;
+}
+
+#review-container h3 {
+    color: #00d4ff;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.review-item {
+    border-bottom: 1px solid #1a4a7a;
+    padding: 15px 0;
+}
+
+.review-item:last-child {
+    border-bottom: none;
+}
+
+.review-question {
+    font-weight: bold;
+    color: #ffffff;
+    margin-bottom: 8px;
+    display: block;
+}
+
+.review-option {
+    font-size: 0.9rem;
+    margin-left: 10px;
+    padding: 2px 6px;
+    border-radius: 4px;
+}
+
+.review-correct {
+    background-color: #155724;
+    color: #d4edda;
+}
+
+.review-wrong {
+    background-color: #721c24;
+    color: #f8d7da;
+}
+
+.review-explanation {
+    font-size: 0.85rem;
+    color: #a0a0a0;
+    margin-top: 8px;
+    font-style: italic;
+}
+
 /* ============================================
    Utilidades y animaciones
    ============================================ */
@@ -265,4 +326,22 @@ header h1 {
 button:disabled {
     cursor: default;
     opacity: 0.8;
+}
+
+.btn-secondary {
+    background-color: #4a6fa5;
+    color: #ffffff;
+    border: none;
+    border-radius: 10px;
+    padding: 14px 28px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.1s;
+    width: 100%;
+}
+
+.btn-secondary:hover {
+    background-color: #5c85c2;
+    transform: translateY(-2px);
 }
