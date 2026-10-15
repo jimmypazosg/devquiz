@@ -9,6 +9,7 @@ DevQuiz es una aplicación web interactiva diseñada para aprender y practicar c
 - **Respuesta inmediata**: la opción correcta se marca en verde y la incorrecta en rojo.
 - **Explicación corta** después de cada respuesta para reforzar el aprendizaje.
 - **Pantalla final** con puntuación y mensaje personalizado según el desempeño.
+- **Modo de revisión de respuestas**: botón al final para inspeccionar cada una de tus respuestas (aciertos en verde, fallos en rojo), ver la opción correcta y repasar la explicación.
 - **Botón para reiniciar** el quiz y volver a intentarlo.
 - **HTML semántico** y accesible (uso de `<main>`, `<header>`, `<section>`, atributos `aria-*`).
 - **Botones reales** (`<button>`) para una mejor experiencia de teclado y lectores de pantalla.

@@ -243,6 +243,7 @@ function showResults() {
     
     // Ocultar la revisión si estaba visible de una sesión anterior
     reviewContainer.classList.add('hidden');
+    reviewBtn.textContent = 'Revisar respuestas';
     
     // Actualizar la barra de progreso al 100%
     progressBar.style.width = '100%';
@@ -263,6 +264,8 @@ function restartQuiz() {
     score = 0;
     isAnswered = false;
     userAnswers = [];
+    reviewContainer.classList.add('hidden');
+    reviewBtn.textContent = 'Revisar respuestas';
     
     // Ocultar resultados y mostrar preguntas
     resultsSection.classList.add('hidden');
