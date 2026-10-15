@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DevQuiz - Quiz de Programación</title>
+    <!-- Enlace al archivo de estilos -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Contenedor principal del quiz -->
+    <main id="quiz-app">
+        <!-- Cabecera con el título y la barra de progreso -->
+        <header>
+            <h1>DevQuiz</h1>
+            <p class="subtitle">Preguntas de JavaScript para principiantes</p>
+            
+            <!-- Barra de progreso -->
+            <div class="progress-container" aria-label="Progreso del quiz">
+                <div class="progress-bar" id="progress-bar" style="width: 0%;"></div>
+            </div>
+            <p class="progress-text" id="progress-text">Pregunta 1 de 10</p>
+        </header>
+
+        <!-- Contenedor de la pregunta actual -->
+        <section id="question-section" aria-live="polite">
+            <h2 id="question-text">Cargando pregunta...</h2>
+            
+            <!-- Lista de opciones como botones reales para mejor accesibilidad -->
+            <div id="options-container" role="group" aria-label="Opciones de respuesta">
+                <!-- Los botones se generan dinámicamente desde app.js -->
+            </div>
+        </section>
+
+        <!-- Sección de explicación que aparece al responder -->
+        <section id="explanation-section" class="hidden" aria-live="polite">
+            <div id="feedback-message"></div>
+            <p id="explanation-text"></p>
+            <button id="next-btn" class="btn-primary">Siguiente pregunta</button>
+        </section>
+
+        <!-- Pantalla final con el resultado -->
+        <section id="results-section" class="hidden" aria-live="polite">
+            <h2>¡Quiz completado!</h2>
+            <div id="score-display">
+                <p id="score-text"></p>
+                <p id="score-message"></p>
+            </div>
+            <button id="restart-btn" class="btn-primary">Volver a empezar</button>
+        </section>
+    </main>
+
+    <!-- Scripts: primero las preguntas, luego la lógica de la aplicación -->
+    <script src="questions.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>

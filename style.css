@@ -1,0 +1,268 @@
+/* ============================================
+   DevQuiz - Estilos generales
+   ============================================ */
+
+/* Reset básico y configuración de caja */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* Tipografía y fondo general */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #1a1a2e;
+    color: #eaeaea;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+/* Contenedor principal del quiz */
+#quiz-app {
+    background-color: #16213e;
+    border-radius: 16px;
+    padding: 40px;
+    width: 100%;
+    max-width: 600px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+/* ============================================
+   Cabecera y barra de progreso
+   ============================================ */
+header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    color: #00d4ff;
+    margin-bottom: 8px;
+}
+
+.subtitle {
+    font-size: 1rem;
+    color: #a0a0a0;
+    margin-bottom: 24px;
+}
+
+/* Contenedor de la barra de progreso */
+.progress-container {
+    width: 100%;
+    height: 12px;
+    background-color: #0f3460;
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 8px;
+}
+
+/* Barra de progreso que se rellena dinámicamente */
+.progress-bar {
+    height: 100%;
+    background-color: #00d4ff;
+    border-radius: 8px;
+    transition: width 0.4s ease;
+}
+
+/* Texto informativo del progreso */
+.progress-text {
+    font-size: 0.9rem;
+    color: #a0a0a0;
+    margin-bottom: 16px;
+}
+
+/* ============================================
+   Sección de la pregunta
+   ============================================ */
+#question-section {
+    margin-bottom: 20px;
+}
+
+#question-text {
+    font-size: 1.2rem;
+    color: #ffffff;
+    margin-bottom: 24px;
+    line-height: 1.5;
+}
+
+/* Contenedor de opciones con grid para los botones */
+#options-container {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+/* Botones de opciones (por defecto) */
+.option-btn {
+    background-color: #0f3460;
+    color: #eaeaea;
+    border: 2px solid transparent;
+    border-radius: 10px;
+    padding: 16px 20px;
+    font-size: 1rem;
+    text-align: left;
+    cursor: pointer;
+    transition: background-color 0.2s, border-color 0.2s, transform 0.1s;
+    width: 100%;
+}
+
+/* Efecto hover en botones de opciones */
+.option-btn:hover:not(:disabled) {
+    background-color: #1a4a7a;
+    transform: translateY(-2px);
+}
+
+/* Efecto de foco para accesibilidad */
+.option-btn:focus-visible {
+    outline: 3px solid #00d4ff;
+    outline-offset: 2px;
+}
+
+/* Opción seleccionada correctamente (verde) */
+.option-btn.correct {
+    background-color: #155724;
+    border-color: #28a745;
+    color: #d4edda;
+}
+
+/* Opción seleccionada incorrectamente (rojo) */
+.option-btn.wrong {
+    background-color: #721c24;
+    border-color: #dc3545;
+    color: #f8d7da;
+}
+
+/* Opción correcta revelada cuando el usuario falla */
+.option-btn.reveal-correct {
+    background-color: #155724;
+    border-color: #28a745;
+    color: #d4edda;
+}
+
+/* ============================================
+   Sección de explicación y feedback
+   ============================================ */
+#explanation-section {
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid #0f3460;
+    animation: fadeIn 0.4s ease;
+}
+
+/* Mensaje de feedback (correcto/incorrecto) */
+#feedback-message {
+    font-size: 1.1rem;
+    font-weight: bold;
+    margin-bottom: 12px;
+    padding: 12px;
+    border-radius: 8px;
+    text-align: center;
+}
+
+/* Feedback cuando la respuesta es correcta */
+#feedback-message.correct {
+    background-color: #155724;
+    color: #d4edda;
+}
+
+/* Feedback cuando la respuesta es incorrecta */
+#feedback-message.wrong {
+    background-color: #721c24;
+    color: #f8d7da;
+}
+
+/* Texto de explicación */
+#explanation-text {
+    font-size: 1rem;
+    color: #c0c0c0;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+/* ============================================
+   Botones principales
+   ============================================ */
+.btn-primary {
+    background-color: #00d4ff;
+    color: #1a1a2e;
+    border: none;
+    border-radius: 10px;
+    padding: 14px 28px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.1s;
+    width: 100%;
+}
+
+.btn-primary:hover {
+    background-color: #33ddff;
+    transform: translateY(-2px);
+}
+
+.btn-primary:focus-visible {
+    outline: 3px solid #ffffff;
+    outline-offset: 2px;
+}
+
+/* ============================================
+   Pantalla de resultados
+   ============================================ */
+#results-section {
+    text-align: center;
+    animation: fadeIn 0.5s ease;
+}
+
+#results-section h2 {
+    font-size: 2rem;
+    color: #00d4ff;
+    margin-bottom: 24px;
+}
+
+#score-display {
+    background-color: #0f3460;
+    border-radius: 12px;
+    padding: 30px;
+    margin-bottom: 24px;
+}
+
+#score-text {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #ffffff;
+    margin-bottom: 12px;
+}
+
+#score-message {
+    font-size: 1.1rem;
+    color: #a0a0a0;
+}
+
+/* ============================================
+   Utilidades y animaciones
+   ============================================ */
+.hidden {
+    display: none;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Botones deshabilitados tras responder */
+button:disabled {
+    cursor: default;
+    opacity: 0.8;
+}
