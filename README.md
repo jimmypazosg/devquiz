@@ -61,6 +61,17 @@ Si deseas mejorar el proyecto (añadir más preguntas, mejorar el estilo, correg
 
 Este proyecto es de uso libre y educativo. No se requiere licencia específica; puedes modificarlo y distribuirlo como desees.
 
+## 🤖 Cómo fue creado con IA
+
+Este proyecto fue generado con la ayuda del agente de codificación **pi**, un asistente de IA integrado en el entorno de desarrollo que utiliza un modelo de lenguaje grande (LLM) para comprender instrucciones en lenguaje natural y producir código fuente. El agente utilizó herramientas de lectura, escritura y edición de archivos para crear los archivos HTML, CSS y JavaScript sin depender de frameworks o librerías externas.
+
+- **Agente de IA**: pi (coding agent)
+- **Modelo LLM**: basado en arquitectura GPT-4 (o similar) ajustado para tareas de codificación.
+- **Herramientas utilizadas**: lectura de archivos (`read`), escritura (`write`), edición precisa (`edit`) y ejecución de comandos de bash para gestionar el repositorio Git.
+- **Enfoque**: código vanilla (HTML5, CSS3, JavaScript ES6+) con énfasis en accesibilidad y semántica.
+- **Iteraciones**: el agente recibió especificaciones detalladas, implementó el quiz, recibió feedback y realizó ajustes (por ejemplo, ajustar estilos, añadir barra de progreso, asegurar respuestas con colores y explicaciones).
+- **Control de versiones**: el agente inicializó un repositorio Git local, añadió un remoto SSH y subió el código a GitHub usando comandos estándar de Git.
+
 ---
 
 ¡Diviértete aprendiendo JavaScript con DevQuiz! 🎉
